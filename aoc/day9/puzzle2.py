@@ -83,7 +83,7 @@ def draw(knots_dict):
 if __name__ == "__main__":
     knot_dict = {}
     knots = 10
-    draw_lines = 10
+    draw_lines = 40
     
     with open("input.txt", "r") as f:
         total_lines = f.read().splitlines()

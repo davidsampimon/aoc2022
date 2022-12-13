@@ -1,4 +1,4 @@
-from puzzle1 import CrateStacks
+from day10.puzzle1 import CrateStacks
 
 if __name__ == "__main__":
     with open("input.txt", "r") as f:

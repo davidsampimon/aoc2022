@@ -5,7 +5,7 @@ class Folder():
     def __init__(self, name):
         self.name = name
         self.size = 0
-        self.children = []
+        self.children = set()
 
     @property
     def total_size(self):
@@ -49,7 +49,7 @@ if __name__ == "__main__":
             folder = row_list[1]
             if not exist(folder, drive):
                 drive[f"{path}/{folder}"] = Folder(folder)
-                drive[path].children.append(drive[f"{path}/{folder}"])
+            drive[path].children.add(drive[f"{path}/{folder}"])
 
     ###### PUZZLE 1 #####
     result = 0
