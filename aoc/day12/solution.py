@@ -100,11 +100,11 @@ if __name__ == "__main__":
     explorer = Explorer(maze, start_pos)
     while explorer.is_exploring:
         pos = explorer.exploring()
-        score = explorer.distances[pos.y][pos.x]
+        steps = explorer.distances[pos.y][pos.x]
         options = explorer.map.find_neighbors(pos)
         for option in options:
             if explorer.distances[option.y][option.x] == -1:
-                explorer.distances[option.y][option.x] = score + 1
+                explorer.distances[option.y][option.x] = steps + 1
                 explorer.exploration_queue.append(option)
     
     answer = explorer.distances[end_pos.y][end_pos.x]
@@ -118,11 +118,11 @@ if __name__ == "__main__":
         explorer = Explorer(maze, start_pos)
         while explorer.is_exploring:
             pos = explorer.exploring()
-            score = explorer.distances[pos.y][pos.x]
+            steps = explorer.distances[pos.y][pos.x]
             options = explorer.map.find_neighbors(pos)
             for option in options:
                 if explorer.distances[option.y][option.x] == -1:
-                    explorer.distances[option.y][option.x] = score + 1
+                    explorer.distances[option.y][option.x] = steps + 1
                     explorer.exploration_queue.append(option)
         if explorer.distances[end_pos.y][end_pos.x] > -1:
             heapq.heappush(results, explorer.distances[end_pos.y][end_pos.x])
